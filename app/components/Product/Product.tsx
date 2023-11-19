@@ -8,10 +8,10 @@ function Product() {
         <S.Image src="/image-test.png" alt="Product image" />
       </S.ImageWrapper>
       <S.MainInfo>
-        <S.Name>Apple Watch Series 4 GPS</S.Name>
+        <S.Name data-testid="name">Apple Watch Series 4 GPS</S.Name>
         <S.Price>R$399</S.Price>
       </S.MainInfo>
-      <S.Description>
+      <S.Description data-testid="description">
         Redesigned from scratch and completely revised.
       </S.Description>
 
