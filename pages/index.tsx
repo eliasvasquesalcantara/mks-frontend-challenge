@@ -4,6 +4,7 @@ import ProductsGrid from "app/components/Product/ProductsGrid";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Footer from "app/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -27,6 +28,10 @@ export default function Home() {
             <Product />
             <Product />
           </ProductsGrid>
+        </div>
+
+        <div className={styles.footerWrapper}>
+          <Footer />
         </div>
       </main>
     </div>
