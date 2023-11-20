@@ -93,6 +93,8 @@ export const BuyButton = styled.button`
   align-items: center;
   gap: 8px;
   border: none;
+
+  cursor: pointer;
 `;
 
 export const BuyText = styled.span`

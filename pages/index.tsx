@@ -5,6 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Footer from "app/components/Footer/Footer";
+import ShoppingCart from "app/components/ShoppingCart/ShoppingCart";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <ShoppingCart />
         <Navbar />
 
         <div className={styles.productsGridWrapper}>
