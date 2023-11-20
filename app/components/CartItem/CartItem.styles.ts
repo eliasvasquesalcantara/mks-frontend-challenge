@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CloseContainer, CloseX } from "../Parts/CloseButton";
 
 export const Container = styled.div`
   width: 379px;
@@ -36,8 +37,9 @@ export const Name = styled.p`
 `;
 
 export const QuantWrapper = styled.div`
-    position: relative;
-`
+  position: relative;
+`;
+
 export const QuantLabel = styled.label`
   font-family: "Montserrat", sans-serif;
   font-size: 0.5rem;
@@ -99,25 +101,23 @@ export const Price = styled.span`
   color: #000000;
 `;
 
-export const Close = styled.div`
+export const ItemCloseContainer = styled(CloseContainer)`
   width: 18px;
   height: 18px;
 
-  background-color: #000000;
-  color: #ffffff;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+`;
 
+export const ItemCartCloseX = styled(CloseX)`
   font-family: "Montserrat", sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0px;
-  text-align: center;
 
-  border-radius: 100%;
-  cursor: pointer;
-
-  position: absolute;
-  right: -5px;
-  top: -5px;
-
+  transform: translateY(
+    -1px
+  ); /*
 `;

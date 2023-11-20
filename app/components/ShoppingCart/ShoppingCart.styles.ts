@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CloseContainer, CloseX } from "../Parts/CloseButton";
 
 export const Container = styled.div`
   width: 486px;
@@ -32,24 +33,11 @@ export const Title = styled.h3`
   width: 180px;
 `;
 
-export const CloseContainer = styled.button`
-  height: 38px;
-  width: 38px;
+export const CartCloseContainer = styled(CloseContainer)`
   margin-right: 22px;
-
-  border: none;
-  border-radius: 100%;
-
-  background-color: #000000;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: pointer;
 `;
 
-export const CloseIcon = styled.p`  
+export const CartCloseX = styled(CloseX)`
   font-family: "Montserrat", sans-serif;
   font-size: 2.8rem;
   font-weight: 400;
@@ -86,7 +74,7 @@ export const FinalizePurchaseButton = styled.button`
   left: 0;
   right: 0;
 
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export const TotalContainer = styled.div`

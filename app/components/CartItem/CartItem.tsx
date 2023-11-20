@@ -23,7 +23,9 @@ function CartItem({}: CartItemProps): JSX.Element {
 
       <S.Price>R$399</S.Price>
 
-      <S.Close>x</S.Close>
+      <S.ItemCloseContainer>
+        <S.ItemCartCloseX>x</S.ItemCartCloseX>
+      </S.ItemCloseContainer>
     </S.Container>
   );
 }

@@ -12,9 +12,9 @@ function ShoppingCart({}: ShoppingCartProps): JSX.Element {
           Carrinho <br /> de compras
         </S.Title>
 
-        <S.CloseContainer data-testid="shopping-cart-close">
-          <S.CloseIcon>x</S.CloseIcon>
-        </S.CloseContainer>
+        <S.CartCloseContainer data-testid="shopping-cart-close">
+          <S.CartCloseX>x</S.CartCloseX>
+        </S.CartCloseContainer>
       </S.Header>
 
       <S.ItemsContainer>
