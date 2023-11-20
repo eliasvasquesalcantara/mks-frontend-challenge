@@ -13,6 +13,7 @@ function ShoppingCart({}: ShoppingCartProps): JSX.Element {
       animate={{
         x: shoppingCart.open ? 0 : "100%",
       }}
+      initial={{ x: "100%" }}
       transition={{ delay: 0.2 }}
     >
       <S.Header>
