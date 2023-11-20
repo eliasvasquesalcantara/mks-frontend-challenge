@@ -6,8 +6,19 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Footer from "app/components/Footer/Footer";
 import ShoppingCart from "app/components/ShoppingCart/ShoppingCart";
+import ShoppingCartContext from "app/context/shoppingCart";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [renderedInBrowser, setRenderedInBrowser] = useState(false);
+
+  useEffect(() => {
+    setRenderedInBrowser(true);
+  }, []);
+
+  if (!renderedInBrowser) return null;
+
   return (
     <div>
       <Head>
@@ -16,8 +27,23 @@ export default function Home() {
       </Head>
 
       <main>
-        <ShoppingCart />
-        <Navbar />
+        <ShoppingCartContext.Provider
+          value={{
+            open: isOpen,
+            setOpen: setIsOpen,
+          }}
+        >
+          <ShoppingCart />
+        </ShoppingCartContext.Provider>
+
+        <ShoppingCartContext.Provider
+          value={{
+            open: isOpen,
+            setOpen: setIsOpen,
+          }}
+        >
+          <Navbar />
+        </ShoppingCartContext.Provider>
 
         <div className={styles.productsGridWrapper}>
           <ProductsGrid>

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { CloseContainer, CloseX } from "../Parts/CloseButton";
+import { motion } from "framer-motion";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   width: 486px;
 
   padding-left: 47px;

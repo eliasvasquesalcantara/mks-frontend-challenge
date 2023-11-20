@@ -42,6 +42,8 @@ export const CartButtonContainer = styled.div`
   gap: 10px;
 
   border-radius: 8px;
+
+  cursor: pointer;
 `;
 
 export const CartButtonQuantity = styled.span`

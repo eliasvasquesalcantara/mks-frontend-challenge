@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as S from "./Navbar.styles";
+import ShoppingCartContext from "app/context/shoppingCart";
 
 interface NavbarProps {}
 
 function Navbar({}: NavbarProps) {
+  const shoppingCart = useContext(ShoppingCartContext);
+
   return (
     <S.Container>
       <li>
@@ -14,7 +17,11 @@ function Navbar({}: NavbarProps) {
       </li>
 
       <li>
-        <S.CartButtonContainer>
+        <S.CartButtonContainer
+          onClick={() => {
+            shoppingCart.setOpen(true);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="19"
