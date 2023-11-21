@@ -2,11 +2,22 @@ import React, { useContext } from "react";
 import * as S from "./ShoppingCart.styles";
 import CartItem from "../CartItem/CartItem";
 import ShoppingCartContext from "app/context/shoppingCart";
+import {
+  decrementProduct,
+  incrementProduct,
+  removeProduct,
+} from "app/redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "store";
 
 interface ShoppingCartProps {}
 
 function ShoppingCart({}: ShoppingCartProps): JSX.Element {
   const shoppingCart = useContext(ShoppingCartContext);
+
+  const productsInfo = useSelector((state: RootState) => state.cartSlice);
+
+  const dispatch = useDispatch();
 
   return (
     <S.Container
@@ -32,13 +43,33 @@ function ShoppingCart({}: ShoppingCartProps): JSX.Element {
       </S.Header>
 
       <S.ItemsContainer>
-        <CartItem />
-        <CartItem />
+        {Object.keys(productsInfo.products).map((id) => {
+          const { photo, name, price, quant } =
+            productsInfo.products[parseInt(id)];
+          return (
+            <CartItem
+              imageSrc={photo}
+              name={name}
+              price={price}
+              quant={quant}
+              key={id}
+              close={() => {
+                dispatch(removeProduct({ id: parseInt(id) }));
+              }}
+              increment={() => {
+                dispatch(incrementProduct({ id: parseInt(id) }));
+              }}
+              decrement={() => {
+                dispatch(decrementProduct({ id: parseInt(id) }));
+              }}
+            />
+          );
+        })}
       </S.ItemsContainer>
 
       <S.TotalContainer>
         <span>Total:</span>
-        <span>R$798</span>
+        <span>{productsInfo.total}</span>
       </S.TotalContainer>
 
       <S.FinalizePurchaseButton>Finalizar Compra</S.FinalizePurchaseButton>

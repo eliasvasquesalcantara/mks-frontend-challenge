@@ -51,11 +51,18 @@ export const CartCloseX = styled(CloseX)`
 `;
 
 export const ItemsContainer = styled.div`
-  margin-top: 66.5px;
+  height: 280px;
+  margin-top: 61.5px;
+  padding-top: 5px;
 
   display: flex;
   flex-direction: column;
   gap: 28px;
+
+  overflow-y: scroll;
+  & > * {
+    flex-shrink: 0;
+  }
 `;
 
 export const FinalizePurchaseButton = styled.button`

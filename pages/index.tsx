@@ -8,14 +8,18 @@ import ShoppingCartContext from "app/context/shoppingCart";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Product from "app/components/Product/Product";
-import { IProductsApiResponse } from "app/modules/product/types";
+import { IProductsParsedApiResponse } from "app/modules/product/types";
 import { getProducts } from "app/modules/product/api/getProducts";
+import { useDispatch } from "react-redux";
+import { addProduct } from "app/redux/cartSlice";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [renderedInBrowser, setRenderedInBrowser] = useState(false);
 
-  const query = useQuery<IProductsApiResponse>("products", getProducts);
+  const query = useQuery<IProductsParsedApiResponse>("products", getProducts);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setRenderedInBrowser(true);
@@ -52,7 +56,15 @@ export default function Home() {
         <div className={styles.productsGridWrapper}>
           <ProductsGrid>
             {query.data?.products.map((product) => {
-              return <Product key={product.id} {...product} />;
+              return (
+                <Product
+                  key={product.id}
+                  {...product}
+                  onBuyClick={async () => {
+                    dispatch(addProduct({ product }));
+                  }}
+                />
+              );
             })}
           </ProductsGrid>
         </div>

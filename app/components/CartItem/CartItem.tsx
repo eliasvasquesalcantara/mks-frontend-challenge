@@ -1,29 +1,61 @@
 import React from "react";
 import * as S from "./CartItem.styles";
 
-interface CartItemProps {}
+interface CartItemProps {
+  name: string;
+  quant: number;
+  price: number;
+  imageSrc: string;
+  close: () => void;
+  decrement: () => void;
+  increment: () => void;
+}
 
-function CartItem({}: CartItemProps): JSX.Element {
+function CartItem({
+  imageSrc,
+  name,
+  price,
+  quant,
+  close,
+  decrement,
+  increment,
+}: CartItemProps): JSX.Element {
   return (
     <S.Container>
-      <S.Image src="/image-test.png" alt="" />
+      <S.Image src={imageSrc} alt="" />
 
-      <S.Name>Apple Watch Series 4 GPS</S.Name>
+      <S.Name>{name}</S.Name>
 
       <S.QuantWrapper>
         <S.QuantLabel>Qtd:</S.QuantLabel>
         <S.QuantContainer>
-          <S.QuantOperator>-</S.QuantOperator>
+          <S.QuantOperator
+            onClick={() => {
+              decrement();
+            }}
+          >
+            -
+          </S.QuantOperator>
           <S.QuantDivider />
-          <S.QuantCounter>1</S.QuantCounter>
+          <S.QuantCounter>{quant}</S.QuantCounter>
           <S.QuantDivider />
-          <S.QuantOperator>+</S.QuantOperator>
+          <S.QuantOperator
+            onClick={() => {
+              increment();
+            }}
+          >
+            +
+          </S.QuantOperator>
         </S.QuantContainer>
       </S.QuantWrapper>
 
-      <S.Price>R$399</S.Price>
+      <S.Price>R${price * quant}</S.Price>
 
-      <S.ItemCloseContainer>
+      <S.ItemCloseContainer
+        onClick={() => {
+          close();
+        }}
+      >
         <S.ItemCartCloseX>x</S.ItemCartCloseX>
       </S.ItemCloseContainer>
     </S.Container>

@@ -1,13 +1,13 @@
 import { isProduct } from "./isProduct";
-import { IProduct } from "./types";
+import { IProductDto } from "./types";
 
-const fullValidObj: IProduct = {
+const fullValidObj: IProductDto = {
   brand: "Test",
   description: "Test",
   id: 0,
   name: "Test",
   photo: "Test",
-  price: 0,
+  price: '1,00',
 };
 
 describe("isProduct", () => {

@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
 import * as S from "./Navbar.styles";
 import ShoppingCartContext from "app/context/shoppingCart";
+import { useSelector } from "react-redux";
+import { RootState } from "store";
 
 interface NavbarProps {}
 
 function Navbar({}: NavbarProps) {
   const shoppingCart = useContext(ShoppingCartContext);
+
+  const products = useSelector((state: RootState) => state.cartSlice.products);
 
   return (
     <S.Container>
@@ -35,7 +39,9 @@ function Navbar({}: NavbarProps) {
               fill="black"
             />
           </svg>
-          <S.CartButtonQuantity>0</S.CartButtonQuantity>
+          <S.CartButtonQuantity>
+            {Object.keys(products).length}
+          </S.CartButtonQuantity>
         </S.CartButtonContainer>
       </li>
     </S.Container>

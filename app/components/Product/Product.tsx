@@ -1,10 +1,20 @@
 import React from "react";
 import * as S from "./Product.styles";
-import { IProduct } from "app/modules/product/types";
+import { IProductEntity } from "app/modules/product/types";
 
-interface ProductProps extends IProduct {}
+interface ProductProps extends IProductEntity {
+  onBuyClick: () => Promise<void>;
+}
 
-function Product({ brand, description, id, name, photo, price }: ProductProps) {
+function Product({
+  brand,
+  description,
+  id,
+  name,
+  photo,
+  price,
+  onBuyClick,
+}: ProductProps) {
   return (
     <S.Container>
       <S.ImageWrapper>
@@ -16,7 +26,7 @@ function Product({ brand, description, id, name, photo, price }: ProductProps) {
       </S.MainInfo>
       <S.Description>{description}</S.Description>
 
-      <S.BuyButton>
+      <S.BuyButton onClick={onBuyClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="12"
