@@ -11,10 +11,10 @@ function Product({ brand, description, id, name, photo, price }: ProductProps) {
         <S.Image src={photo} alt="Product image" />
       </S.ImageWrapper>
       <S.MainInfo>
-        <S.Name data-testid="name">{name}</S.Name>
+        <S.Name>{name}</S.Name>
         <S.Price>R$ {price}</S.Price>
       </S.MainInfo>
-      <S.Description data-testid="description">{description}</S.Description>
+      <S.Description>{description}</S.Description>
 
       <S.BuyButton>
         <svg

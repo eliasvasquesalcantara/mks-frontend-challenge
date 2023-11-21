@@ -3,31 +3,81 @@ import Product from "./Product";
 
 describe("Product", () => {
   it("should render the product image", () => {
-    render(<Product />);
+    render(
+      <Product
+        brand="Test"
+        description="Test"
+        id={1}
+        name="Test"
+        photo="Test"
+        price={1}
+        key={"Test"}
+      />
+    );
 
     expect(screen.getByAltText("Product image")).toBeInTheDocument();
   });
 
   it("should render the product name", () => {
-    render(<Product />);
+    render(
+      <Product
+        brand="Test"
+        description="Test"
+        id={1}
+        name="Name Test"
+        photo="Test"
+        price={1}
+        key={"Test"}
+      />
+    );
 
-    expect(screen.getByTestId("name").innerHTML).not.toBe("");
+    expect(screen.getByText("Name Test")).toBeInTheDocument();
   });
 
   it("should render the product description", () => {
-    render(<Product />);
+    render(
+      <Product
+        brand="Test"
+        description="Description Test"
+        id={1}
+        name="Test"
+        photo="Test"
+        price={1}
+        key={"Test"}
+      />
+    );
 
-    expect(screen.getByTestId("description").innerHTML).not.toBe("");
+    expect(screen.getByText("Description Test")).toBeInTheDocument();
   });
 
   it("should render the product price", () => {
-    render(<Product />);
+    render(
+      <Product
+        brand="Test"
+        description="Test"
+        id={1}
+        name="Test"
+        photo="Test"
+        price={199}
+        key={"Test"}
+      />
+    );
 
-    expect(screen.getByText(/R$/i)).toBeInTheDocument();
+    expect(screen.getByText(/199/i)).toBeInTheDocument();
   });
 
   it("should render purchase button", () => {
-    render(<Product />);
+    render(
+      <Product
+        brand="Test"
+        description="Test"
+        id={1}
+        name="Test"
+        photo="Test"
+        price={1}
+        key={"Test"}
+      />
+    );
 
     expect(screen.getByText(/comprar/i)).toBeInTheDocument();
   });
