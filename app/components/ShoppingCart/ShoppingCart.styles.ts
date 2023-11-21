@@ -59,7 +59,7 @@ export const ItemsContainer = styled.div`
   flex-direction: column;
   gap: 28px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
   & > * {
     flex-shrink: 0;
   }
