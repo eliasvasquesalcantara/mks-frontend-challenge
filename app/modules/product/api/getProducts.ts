@@ -4,7 +4,7 @@ import { isProduct } from "../isProduct";
 
 export async function getProducts(): Promise<IProductsParsedApiResponse> {
   const { data } = await axios.get(
-    "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC"
+    `${process.env.NEXT_PUBLIC_GET_PRODUCTS}?page=1&rows=8&sortBy=id&orderBy=DESC`
   );
 
   const areAllProducts = data.products.every((product: any) => {

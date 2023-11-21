@@ -12,6 +12,7 @@ import { IProductsParsedApiResponse } from "app/modules/product/types";
 import { getProducts } from "app/modules/product/api/getProducts";
 import { useDispatch } from "react-redux";
 import { addProduct } from "app/redux/cartSlice";
+import ProductSkeleton from "app/components/Product/ProductSkeleton";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +57,7 @@ export default function Home() {
         <div className={styles.productsGridWrapper}>
           <ProductsGrid>
             {query.data?.products.map((product) => {
+              if (query.isLoading) return <ProductSkeleton />;
               return (
                 <Product
                   key={product.id}
