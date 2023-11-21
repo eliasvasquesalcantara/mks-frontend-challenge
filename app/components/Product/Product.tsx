@@ -1,19 +1,20 @@
 import React from "react";
 import * as S from "./Product.styles";
+import { IProduct } from "app/modules/product/types";
 
-function Product() {
+interface ProductProps extends IProduct {}
+
+function Product({ brand, description, id, name, photo, price }: ProductProps) {
   return (
     <S.Container>
       <S.ImageWrapper>
-        <S.Image src="/image-test.png" alt="Product image" />
+        <S.Image src={photo} alt="Product image" />
       </S.ImageWrapper>
       <S.MainInfo>
-        <S.Name data-testid="name">Apple Watch Series 4 GPS</S.Name>
-        <S.Price>R$399</S.Price>
+        <S.Name data-testid="name">{name}</S.Name>
+        <S.Price>R$ {price}</S.Price>
       </S.MainInfo>
-      <S.Description data-testid="description">
-        Redesigned from scratch and completely revised.
-      </S.Description>
+      <S.Description data-testid="description">{description}</S.Description>
 
       <S.BuyButton>
         <svg
