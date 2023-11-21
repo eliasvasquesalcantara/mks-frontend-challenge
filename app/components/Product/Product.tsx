@@ -18,13 +18,15 @@ function Product({
   return (
     <S.Container>
       <S.ImageWrapper>
-        <S.Image src={photo} alt="Product image" />
+        <S.Image src={photo} alt="Product image" data-testid="product-image" />
       </S.ImageWrapper>
       <S.MainInfo>
-        <S.Name>{name}</S.Name>
-        <S.Price>R${price}</S.Price>
+        <S.Name data-testid="product-name">{name}</S.Name>
+        <S.Price data-testid="product-price">R${price}</S.Price>
       </S.MainInfo>
-      <S.Description>{description.split(' ').slice(0, 10).join(' ') + '...'}</S.Description>
+      <S.Description data-testid="product-description">
+        {description.split(" ").slice(0, 10).join(" ") + "..."}
+      </S.Description>
 
       <S.BuyButton onClick={onBuyClick}>
         <svg

@@ -2,8 +2,21 @@ import { render, screen, waitFor } from "@testing-library/react";
 import ShoppingCart from "./ShoppingCart";
 import "@testing-library/jest-dom/extend-expect";
 import ShoppingCartContext from "app/context/shoppingCart";
+import { useSelector } from "react-redux";
+
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+  useDispatch: jest.fn(),
+}));
 
 describe("ShoppingCart", () => {
+  beforeEach(() => {
+    (useSelector as jest.Mock).mockReturnValue({
+      products: [],
+      total: 0,
+    });
+  });
+
   it("should render the title", () => {
     render(<ShoppingCart />);
 
@@ -50,7 +63,18 @@ describe("ShoppingCart", () => {
     );
   });
 
-  it.todo("should render the total");
+  it("should render the total", () => {
+    (useSelector as jest.Mock).mockReturnValue({
+      products: [],
+      total: 522,
+    });
 
-  it.todo("should render the correct quantity of items");
+    <ShoppingCartContext.Provider
+      value={{ open: true, setOpen: () => undefined }}
+    >
+      <ShoppingCart />
+    </ShoppingCartContext.Provider>;
+
+    waitFor(() => expect(screen.getByText("522")).toBeInTheDocument());
+  });
 });

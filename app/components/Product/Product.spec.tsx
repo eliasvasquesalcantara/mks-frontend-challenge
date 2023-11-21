@@ -2,68 +2,29 @@ import { render, screen } from "@testing-library/react";
 import Product from "./Product";
 
 describe("Product", () => {
-  it("should render the product image", () => {
+  it("should render Product with the given values", () => {
     render(
       <Product
-        brand="Test"
-        description="Test"
-        id={1}
-        name="Test"
-        photo="Test"
-        price={1}
-        key={"Test"}
-      />
-    );
-
-    expect(screen.getByAltText("Product image")).toBeInTheDocument();
-  });
-
-  it("should render the product name", () => {
-    render(
-      <Product
-        brand="Test"
-        description="Test"
-        id={1}
-        name="Name Test"
-        photo="Test"
-        price={1}
-        key={"Test"}
-      />
-    );
-
-    expect(screen.getByText("Name Test")).toBeInTheDocument();
-  });
-
-  it("should render the product description", () => {
-    render(
-      <Product
-        brand="Test"
+        brand=""
         description="Description Test"
         id={1}
-        name="Test"
-        photo="Test"
+        name="Name Test"
+        photo="Given-Src"
         price={1}
-        key={"Test"}
+        key=""
+        onBuyClick={async () => {}}
       />
     );
 
-    expect(screen.getByText("Description Test")).toBeInTheDocument();
-  });
-
-  it("should render the product price", () => {
-    render(
-      <Product
-        brand="Test"
-        description="Test"
-        id={1}
-        name="Test"
-        photo="Test"
-        price={199}
-        key={"Test"}
-      />
+    expect(screen.getByTestId("product-description").innerHTML).toBe(
+      "Description Test..."
     );
-
-    expect(screen.getByText(/199/i)).toBeInTheDocument();
+    expect(screen.getByTestId("product-name").innerHTML).toBe("Name Test");
+    expect(screen.getByTestId("product-image")).toHaveAttribute(
+      "src",
+      "Given-Src"
+    );
+    expect(screen.getByTestId("product-price").innerHTML).toBe("R$1");
   });
 
   it("should render purchase button", () => {
@@ -76,6 +37,7 @@ describe("Product", () => {
         photo="Test"
         price={1}
         key={"Test"}
+        onBuyClick={async () => {}}
       />
     );
 

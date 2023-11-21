@@ -4,15 +4,13 @@ import axios from "axios";
 
 jest.mock("axios");
 
-const basicResponse: Partial<IProductsApiResponse> = {
-  products: [],
-  count: 1,
-};
-
 describe("getProducts", () => {
   describe("should validate against invalid response", () => {
     it("should throw erro if response does NOT contain products array", async () => {
-      const responseMock = { ...basicResponse };
+      const responseMock: Partial<IProductsApiResponse> = {
+        products: [],
+        count: 1,
+      };
       delete responseMock.products;
 
       (axios.get as jest.Mock).mockImplementation(() =>
@@ -32,7 +30,10 @@ describe("getProducts", () => {
     });
 
     it("should throw erro if response does NOT contain count property", async () => {
-      const responseMock = { ...basicResponse };
+      const responseMock: Partial<IProductsApiResponse> = {
+        products: [],
+        count: 1,
+      };
       delete responseMock.count;
 
       (axios.get as jest.Mock).mockImplementation(() =>
@@ -61,7 +62,10 @@ describe("getProducts", () => {
         price: "1,00",
       } as any;
 
-      const responseMock = { ...basicResponse };
+      const responseMock: Partial<IProductsApiResponse> = {
+        products: [],
+        count: 1,
+      };
       responseMock.products?.push(product as any);
 
       (axios.get as jest.Mock).mockImplementation(() =>
@@ -81,7 +85,10 @@ describe("getProducts", () => {
     });
 
     it("should throw error if 'price' CANNOT be converted to number", async () => {
-      const responseMock = { ...basicResponse };
+      const responseMock: Partial<IProductsApiResponse> = {
+        products: [],
+        count: 1,
+      };
 
       const product: IProductDto = {
         brand: "Test",
@@ -111,7 +118,10 @@ describe("getProducts", () => {
     });
 
     it("should return price converted to number", async () => {
-      const responseMock = { ...basicResponse };
+      const responseMock: Partial<IProductsApiResponse> = {
+        products: [],
+        count: 1,
+      };
 
       const product: IProductDto = {
         brand: "Test",
