@@ -93,6 +93,7 @@ export const QuantOperator = styled(QuantText)`
 `;
 
 export const Price = styled.span`
+  width: 75px;
   font-family: "Montserrat", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
