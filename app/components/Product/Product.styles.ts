@@ -35,6 +35,8 @@ export const MainInfo = styled.div`
   display: flex;
   justify-content: space-between;
 
+  height: 38px;
+
   margin-bottom: 8px;
 `;
 

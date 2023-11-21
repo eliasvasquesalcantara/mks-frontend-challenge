@@ -22,9 +22,9 @@ function Product({
       </S.ImageWrapper>
       <S.MainInfo>
         <S.Name>{name}</S.Name>
-        <S.Price>R$ {price}</S.Price>
+        <S.Price>R${price}</S.Price>
       </S.MainInfo>
-      <S.Description>{description}</S.Description>
+      <S.Description>{description.split(' ').slice(0, 10).join(' ') + '...'}</S.Description>
 
       <S.BuyButton onClick={onBuyClick}>
         <svg
