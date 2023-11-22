@@ -1,35 +1,31 @@
-# Next.js + Jest
+# mks-frontend-challenge
 
-This example shows how to configure Jest to work with Next.js.
+Deploy: https://mks-frontend-challenge-delta.vercel.app/
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Jest with the App Router and React Server Components.
+## Descrição
+A aplicação deve conter apenas uma página/rota e um carrinho.
+Loja: A lista de produtos deve ser buscada de nossa API, use um shimmer/skeleton enquanto estiver em loading.
+Carrinho: O carrinho deve conter todos os produtos selecionados, juntamente com a opção de aumentar a quantidade de cada produto selecionado.
+Use do Jest e a testing-library para realizar os testes unitários.
 
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
+## Ferramentas requeridas
+TypeScript
+React ou Next.js (Preferimos Next.js)
+React-query
+Styled-components ou SASS
+Framer-motion
+Jest
 
-## Deploy your own
+## Rodar localmente
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
-
-## How to Use
-
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
+No seu terminal, execute o seguinte comando:
 
 ```bash
-npx create-next-app --example with-jest with-jest-app
+npm run dev
 ```
 
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
+## Rodar testes
 
 ```bash
-pnpm create next-app --example with-jest with-jest-app
-```
-
-## Running Tests
-
-```bash
-npm test
+npm run test
 ```
